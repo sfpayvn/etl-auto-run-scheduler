@@ -5,7 +5,7 @@ BASE_URL = "https://e56c-116-109-223-76.ngrok-free.app"
 TIMEZONE_OFFSET = 7
 
 def run_job():
-    url = f"{BASE_URL}/run-eligible-tenants"
+    url = f"{BASE_URL}/core/run-eligible-tenants"
 
     params = {
         "moduleKey": "bus-schedule-autogenerators",
