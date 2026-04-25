@@ -1,27 +1,38 @@
 import requests
 import time
+import os
 
 BASE_URL = "https://e56c-116-109-223-76.ngrok-free.app"
 TIMEZONE_OFFSET = 7
-
+CRON_SECRET = os.getenv("CRON_SECRET")
 
 def run_job():
     print("🔥 SCRIPT STARTED")
 
-    url = f"{BASE_URL}/core/auto-job/run-eligible-tenants"
+    url = f"{BASE_URL}/core/auto-job/run-eligible-tenants-cron"
 
     params = {
         "moduleKey": "bus-schedule-autogenerators",
-        "jobName": "auto_schedule",
-        "timezoneOffset": TIMEZONE_OFFSET
+        "jobName": "auto_schedule"
     }
 
-    print("👉 Calling API:", url)
+    headers = {
+        "x-cron-secret": CRON_SECRET,
+        "x-timezone-offset": TIMEZONE_OFFSET
+    }
+
+    print("👉 URL:", url)
+    print("👉 CRON_SECRET:", CRON_SECRET)
     print("👉 Params:", params)
 
     for i in range(3):
         try:
-            res = requests.post(url, params=params, timeout=20)
+            res = requests.post(
+                url,
+                params=params,   
+                headers=headers, 
+                timeout=20
+            )
 
             print("👉 STATUS:", res.status_code)
             print("👉 RESPONSE:", res.text)
@@ -34,6 +45,7 @@ def run_job():
             time.sleep(2)
 
     return False
+
 
 
 def main():
