@@ -3,7 +3,7 @@ import time
 import os
 
 BASE_URL = "https://e56c-116-109-223-76.ngrok-free.app"
-TIMEZONE_OFFSET = 7
+TIMEZONE_OFFSET = "7"
 CRON_SECRET = os.getenv("CRON_SECRET")
 
 def run_job():

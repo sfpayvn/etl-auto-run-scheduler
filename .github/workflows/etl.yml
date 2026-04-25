@@ -11,6 +11,7 @@ jobs:
 
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      CRON_SECRET: ${{ secrets.CRON_SECRET }}   
 
     steps:
       - name: Checkout code
