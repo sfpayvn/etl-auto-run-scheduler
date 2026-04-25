@@ -8,7 +8,7 @@ TIMEZONE_OFFSET = 7
 def run_job():
     print("🔥 SCRIPT STARTED")
 
-    url = f"{BASE_URL}/core/run-eligible-tenants"
+    url = f"{BASE_URL}/core/auto-job/run-eligible-tenants"
 
     params = {
         "moduleKey": "bus-schedule-autogenerators",
