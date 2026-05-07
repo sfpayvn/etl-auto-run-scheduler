@@ -2,7 +2,7 @@ import requests
 import time
 import os
 
-BASE_URL = "https://ec2-3-1-221-127.ap-southeast-1.compute.amazonaws.com/"
+BASE_URL = "http://ec2-3-1-221-127.ap-southeast-1.compute.amazonaws.com:8000"
 TIMEZONE_OFFSET = "7"
 CRON_SECRET = os.getenv("CRON_SECRET")
 
