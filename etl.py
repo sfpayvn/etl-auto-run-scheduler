@@ -2,7 +2,7 @@ import requests
 import time
 import os
 
-BASE_URL = "https://sfbus.cloud"
+BASE_URL = "https://project-qic5f.vercel.app"
 TIMEZONE_OFFSET = "7"
 CRON_SECRET = os.getenv("CRON_SECRET")
 
